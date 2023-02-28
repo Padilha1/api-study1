@@ -29,7 +29,7 @@ function App() {
 		await axios.post(api, photo);
 		setPhotos([photo, ...photos]);
 	};
-	const handleUpdate = async (photo) => {
+	const handleUpdate = async (photo:photoProp) => {
 		photo.title = "Updated Title";
 		await axios.put(api + "/" + photo.id);
 		const photoClone = [...photos];
@@ -38,7 +38,7 @@ function App() {
 		setPhotos(photoClone);
 	};
 
-	const handleDelete = async (photo) => {
+	const handleDelete = async (photo:photoProp) => {
 		await axios.delete(api + "/" + photo.id + photo);
 		setPhotos(photos.filter((p) => p.id !== photo.id));
 	};
